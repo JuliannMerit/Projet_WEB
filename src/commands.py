@@ -1,8 +1,9 @@
 import click
-from .app import app , db
+from .app import app, db
+
 
 # import des modèles
-from . models import Realisateur , Film
+from . models import Realisateur, Film
 
 
 @app.cli.command()
@@ -18,20 +19,19 @@ def loaddb(filename):
     realisateur = {}
     for f in films:
         r = f["author"]
-        if r not in realisateur :
-            o=Realisateur(name=r)
+        if r not in realisateur:
+            o = Realisateur(name=r)
             db.session.add(o)
             realisateur[r] = o
     db.session.commit()
     # deuxième passe: création de tous les films
     for f in films:
-        a = realisateur[b["realisateur"]]
+        a = realisateur[f["realisateur"]]
         o = Film(
-            nom=f["nom_film"],
-            genre=f["genre"],
-            img=f["img"],
-            url=f["url"],
-            realisateur=a
-        )
+            nom = f["nom_film"],
+            genre = f["genre"],
+            img = f["img"],
+            url = f["url"],
+            realisateur = a)
         db.session.add(o)
     db.session.commit()

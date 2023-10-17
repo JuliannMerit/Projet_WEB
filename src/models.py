@@ -1,12 +1,12 @@
 import yaml, os.path
-from .app import db, login_manager
-from flask_login import UserMixin
+from .app import db#, login_manager
+#from flask_login import UserMixin
 
 Films = yaml.safe_load(
     open(
         os.path.join(
             os.path.dirname(__file__),
-            'data.yaml'
+            'data.yml'
         )
     )
 )
@@ -25,7 +25,7 @@ class Realisateur(db.Model):
     prenom = db.Column(db.String(64), nullable=False)
     
     def __repr__(self):
-        return self.nom_film + self.prenom
+        return self.nom + self.prenom
 
 #Realisateur, nom_film, genre, lien, image, id
 class Film(db.Model):
@@ -47,13 +47,13 @@ def get_sample2():
 def get_realisateur():
     return Realisateur.query.all()
 
-class User(db.Model, UserMixin):
-    username = db.Column(db.String(64), primary_key=True)
-    password = db.Column(db.String(64), nullable=False)
-    
-    def get_id(self):
-        return self.username
+#class User(db.Model, UserMixin):
+#    username = db.Column(db.String(64), primary_key=True)
+#    password = db.Column(db.String(64), nullable=False)
+#    
+#    def get_id(self):
+#        return self.username
 
-@login_manager.user_loader
-def load_user(username):
-    return User.query.get(username)
+#@login_manager.user_loader
+#def load_user(username):
+#    return User.query.get(username)
