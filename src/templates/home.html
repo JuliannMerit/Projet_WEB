@@ -1,25 +1,21 @@
-<! doctype html>
+<!doctype html>
 <html>
-    <head>
-        <title>{{ title }}</title>
-        <link rel="stylesheet"
 
-            href="{{"url_for('static', "filename='home.css')"}}"  <-- erreur -->
-    </ head>
-    <body>
-        <h1 >{{ title }}</h1>
-        
-        <body>
-            <h1>{{ title }}</h1>
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'home.css')}}" />
+</head>
 
-            <ul>
-                {% for x in names %}
-                <li>{{ x }}</ li>
-                {% enfor %}
+<body>
+    <h1>{{ title }}</h1>
+    {% extends "base.html" %}
+    {% block main %}
+    <ul>
+        {% for x in names %}
+        <li>{{ x }}</li>
+        {% enfor %}
+    </ul>
+    {% endblock %}
+</body>
 
-            </ ul>
-        </ body>
-    </html>
-
-    
-        
+</html>
