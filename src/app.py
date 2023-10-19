@@ -20,3 +20,5 @@ db = SQLAlchemy(app)
 
 login_manager = LoginManager(app)
 login_manager.login_view = 'login' # Change this to the name of your login view function
+
+app.config['WTF_CSRF_ENABLED'] = False
