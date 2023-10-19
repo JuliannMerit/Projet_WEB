@@ -6,8 +6,8 @@
 {% block content %}
   <h1>{{ title }}</h1>
   <div class="sample">
-    {% for x in books %}a
-      <a href="{{ url_for('detail', id = x.id) }}"><img src="{{ url_for('static', filename = 'images/' + x.img) }}" alt="{{ x.title }}" title="{{ x.title }}" /></a>
+    {% for x in films %}
+      <a href="{{ url_for('detail', id = x.id) }}"><img src="{{ url_for('static', filename = 'image/' + x.img) }}" alt="{{ x.nom_film }}" title="{{ x.nom_film }}" /></a>
     {% endfor %}
   </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 import yaml, os.path
-from .app import db#, login_manager
-#from flask_login import UserMixin
+from .app import db, login_manager
+from flask_login import UserMixin
 
 Films = yaml.safe_load(
     open(
@@ -16,44 +16,66 @@ for film in Films:
     film['id'] = i
     i += 1
 
-def get_sample():
-    return Films[1:10]
-
 class Realisateur(db.Model):
+    """Class représentant un réalisateur de film
+
+    Args:
+        db (SQLAlchemy): Base de données
+    
+    Attributes:
+        id (int): Identifiant unique du réalisateur
+        nom (str): Nom du réalisateur
+    """
     id = db.Column(db.Integer, primary_key=True)
     nom = db.Column(db.String(64), nullable=False)
-    prenom = db.Column(db.String(64), nullable=False)
+    
     
     def __repr__(self):
-        return self.nom + self.prenom
+        """Méthode d'affichage de la classe Realisateur
 
-#Realisateur, nom_film, genre, lien, image, id
+        Returns:
+            str: Nom du réalisateur
+        """
+        return self.nom
+
 class Film(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nom_film = db.Column(db.String(64), nullable=False)
     genre = db.Column(db.String(64), nullable=False)
     img = db.Column(db.String(200), nullable=False)
-    url = db.Column(db.String(250), nullable=False)
+    lien = db.Column(db.String(250), nullable=False)
     id_realisateur = db.Column(db.Integer, db.ForeignKey('realisateur.id'), nullable=False)
-    realisateur = db.relationship('realisateur', backref=db.backref('films', lazy='dynamic'))
+    realisateur = db.relationship('Realisateur', backref=db.backref('films', lazy='dynamic'))
     
     def __repr__(self):
         return self.nom_film
 
+class User(db.Model, UserMixin):
+    username = db.Column(db.String(64), primary_key=True)
+    password = db.Column(db.String(64))
+    
+    def get_id(self):
+        return self.username
 
-def get_sample2():
-    return Film.query.limit(10).all()
+class Commentaire(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    commentaire = db.Column(db.String(500), nullable=False)
+    id_film = db.Column(db.Integer, db.ForeignKey('film.id'), nullable=False)
+    nom_user = db.Column(db.String(64), db.ForeignKey('user.username'), nullable=False)
+    film = db.relationship('Film', backref=db.backref('commentaires', lazy='dynamic'))
 
-def get_realisateur():
-    return Realisateur.query.all()
+    def __repr__(self):
+        return self.commentaire
 
-#class User(db.Model, UserMixin):
-#    username = db.Column(db.String(64), primary_key=True)
-#    password = db.Column(db.String(64), nullable=False)
-#    
-#    def get_id(self):
-#        return self.username
+def get_sample():
+    return Film.query.all()
 
-#@login_manager.user_loader
-#def load_user(username):
-#    return User.query.get(username)
+def get_realisateur(id):
+    return Realisateur.query.get(id)
+
+def get_commentaires(id):
+    return Commentaire.query.filter_by(id_film=id).all()
+
+@login_manager.user_loader
+def load_user(username):
+    return User.query.get(username)

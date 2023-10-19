@@ -1,17 +1,62 @@
-h1 {color: red;}
-div.sample{
+h1 {
+    color: red;
+}
+
+div.sample {
     text-align: center;
     margin-left: 25%;
     margin-right: 25%;
+    margin-bottom: 3em;
 }
-main{
+
+main {
     margin-top: 8em;
 }
-footer{
+
+.sample img {
+    width: 8em;
+    padding-bottom: 0.5em;
+}
+
+footer {
     position: fixed;
     bottom: 0;
     width: 100%;
 }
-main > .container {
+
+main>.container {
     padding: 60px 15px 0;
+}
+
+li {
+    list-style-type: none;
+
+}
+
+div.affichage {
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 5em;
+}
+
+.affichage img {
+    width: 15em;
+    padding-bottom: 0.5em;
+}
+
+div.affichage ul li{
+    margin: 0.5em;
+}
+
+.precedent-suivant{
+    margin: 0em 0.5em 0em 0.5em;
+}
+
+.username-log{
+    color: white;
+}
+
+.navbar-right li{
+    margin: 0.2em;
 }
