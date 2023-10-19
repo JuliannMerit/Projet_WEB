@@ -7,15 +7,12 @@ source "./venv/bin/activate"
 pip install -r requirements.txt
 pip install Werkzeug==2.3.7
 
-# Load la base de donnée
-flask loaddb src/data.yml
-
-deactivate
-
 # Crée le fichier .flaskenv
 touch .flaskenv
 echo "FLASK_APP = src" > .flaskenv
 echo "FLASK_DEBUG = True" >> .flaskenv
 
+# Load la base de donnée
+flask loaddb src/data.yml
 
-
+deactivate
