@@ -7,6 +7,7 @@ from wtforms.validators import DataRequired
 from hashlib import sha256
 from flask_login import login_user, logout_user, login_required, current_user
 from flask import request
+from datetime import date
 
 class RealisateurForm(FlaskForm):
     id = HiddenField('id')
@@ -92,14 +93,14 @@ def detail(id):
                                 nb_films=nb_films,
                                 id=f.id_film.data,
                                 user=user,
-                                today=today))
+                                today=date.today()))
     #Sinon on affiche la page du film
     return render_template('detail.html',
                             film=film,
                             commentaires=commentaires,
                             form=f,
                             user=user,
-                            today=today,
+                            today=date.today(),
                             nb_films=nb_films)
 
 @app.route('/edit/realisateur/<id>')
@@ -149,8 +150,6 @@ def logout():
 @app.route('/register/',methods=("GET","POST"))
 def register():
     f=RegisterForm()
-    if not f.is_submitted():
-        f.next.data=request.args.get("next")
     if f.validate_on_submit():
         user=f.create_user()
         if user:

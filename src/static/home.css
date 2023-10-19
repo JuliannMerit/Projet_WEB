@@ -1,7 +1,11 @@
 h1 {
-    color: red;
+    color: black;
+    border-style : solid;
+    margin: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-color: grey;
 }
-
 div.sample {
     text-align: center;
     margin-left: 25%;
@@ -14,8 +18,9 @@ main {
 }
 
 .sample img {
-    width: 8em;
-    padding-bottom: 0.5em;
+    width:24%;
+    padding-bottom: 2%;
+    object-fit: contain;
 }
 
 footer {
@@ -59,4 +64,37 @@ div.affichage ul li{
 
 .navbar-right li{
     margin: 0.2em;
+}
+
+
+.container{
+    text-align: left;
+    font-weight: bold;
+}
+
+.navbar-brand{
+    font-size:105%;
+    font-weight: bold;
+}
+
+.nav-link{
+    font-size:105%;
+    font-weight: bold;
+}
+.nav-link.active{
+    font-size:105%;
+    font-weight: bold;
+}
+
+.form-group{
+    margin: 5%;
+}
+
+div.affichage{
+     padding-bottom: 0.5em;
+    
+}
+
+.flex-shrink-0{
+    margin-bottom: 10%;
 }
