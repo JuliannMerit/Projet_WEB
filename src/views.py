@@ -83,28 +83,22 @@ def detail(id):
     f = CommentaireForm(id_film = int(id))
     today = date.today()
     if f.validate_on_submit():
+    #Sinon on affiche la page du film
         if f.commentaire.data != "":
             f.create_commentaire()
             return redirect(url_for('detail',
                                     nb_films=nb_films,
                                     id=f.id_film.data,
                                     user=user,
-                                    today=today))
+                                    today=date.today()))
         else:
             return render_template('detail.html',
                                     film=film,
                                     commentaires=commentaires,
                                     form=f,
                                     user=user,
-                                    today=today,
+                                    today=date.today(),
                                     nb_films=nb_films)
-    return render_template('detail.html',
-                            film=film,
-                            commentaires=commentaires,
-                            form=f,
-                            user=user,
-                            today=today,
-                            nb_films=nb_films)
 
 @app.route('/edit/realisateur/<id>')
 @login_required
