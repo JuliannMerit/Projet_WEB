@@ -26,7 +26,6 @@ def loaddb(filename):
     # deuxième passe: création de tous les films
     for f in films:
         r = realisateur[f["realisateur"]]
-        print(r)
         o = Film(nom_film = f["nom_film"],
                 genre = f["genre"],
                 img = f["img"],
