@@ -1,0 +1,100 @@
+- nom_film: Les Eternels
+  realisateur: Cloé Zhao
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=0WVDKZJkGlY
+  img : les_eternels.png
+- nom_film: Dune
+  realisateur: Denis Villeneuve
+  genre : Science-fiction
+  lien : https://www.youtube.com/watch?v=8g18jFHCLXk
+  img : dune.png
+- nom_film: Les Gardiens de la Galaxie Vol. 3
+  realisateur: James Gunn
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=0RsvBSFm938
+  img : les_gardiens_de_la_galaxie_vol_3.png
+- nom_film: Aquaman 2
+  realisateur: James Wan
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=2wcj6SrX4zw
+  img : aquaman_2.png
+- nom_film: Spider Man No Way Home
+  realisateur: Jon Watts
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=rt-2cxAiPJk
+  img : spider_man_no_way_home.png
+- nom_film: The Batman
+  realisateur: Matt Reeves
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=mqqft2x_Aa4
+  img : the_batman.png
+- nom_film : Thor Love and Thunder
+  realisateur: Taika Waititi
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=tgB1wUcmbbw
+  img : thor_love_and_thunder.png
+- nom_film: Black Panther Wakanda Forever
+  realisateur: Ryan Coogler
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=RlOB3UALvrQ
+  img : black_panther_wakanda_forever.png
+- nom_film: Doctor Strange in the Multiverse of Madness
+  realisateur: Sam Raimi
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=aWzlQ2N6qqg
+  img : doctor_strange_in_the_multiverse_of_madness.png
+- nom_film: The Flash
+  realisateur: Andy Muschietti
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=hebWYacbdvc
+  img : the_flash.png
+- nom_film: Shazam Fury of the Gods
+  realisateur: David F. Sandberg
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=Zi88i4CpHe4
+  img : shazam_fury_of_the_gods.png
+- nom_film: Captain Marvel 2
+  realisateur: Nia DaCosta
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=9z9_bfhpLzU
+  img : captain_marvel_2.png
+- nom_film: Avengers Endgame
+  realisateur: Anthony et Joe Russo
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=0jNvJU52LvU
+  img : avengers_endgame.png
+- nom_film: Avengers Infinity War
+  realisateur: Anthony et Joe Russo
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=6ZfuNTqbHE8
+  img : avengers_infinity_war.png
+- nom_film: Avengers Age of Ultron
+  realisateur: Joss Whedon
+  genre : Action, Science-fiction
+  lien : https://www.youtube.com/watch?v=tmeOjFno6Do
+  img : avengers_age_of_ultron.png
+- nom_film: Super Mario Bros
+  realisateur: Annabel Jankel et Rocky Morton
+  genre : Aventure, Science-fiction
+  lien : https://www.youtube.com/watch?v=TnGl01FkMMo
+  img : super_mario_bros.png
+- nom_film: Sonic
+  realisateur: Jeff Fowler
+  genre : Aventure, Science-fiction
+  lien : https://www.youtube.com/watch?v=szby7ZHLnkA
+  img : sonic.png
+- nom_film: Mortal Kombat
+  realisateur: Simon McQuoid
+  genre : Action
+  lien : https://www.youtube.com/watch?v=NYH2sLid0Zc
+  img : mortal_kombat.png
+- nom_film: Resident Evil
+  realisateur: Johannes Roberts
+  genre : Action, Horreur
+  lien : https://www.youtube.com/watch?v=zE__yt-thQM
+  img : resident_evil.png
+- nom_film: La Nonne 2
+  realisateur: Corin Hardy
+  genre : Horreur
+  lien : https://www.youtube.com/watch?v=t0YHbGwZFEw
+  img : la_nonne_2.png
