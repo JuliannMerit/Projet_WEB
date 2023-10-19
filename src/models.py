@@ -62,6 +62,7 @@ class Commentaire(db.Model):
     commentaire = db.Column(db.String(500), nullable=False)
     id_film = db.Column(db.Integer, db.ForeignKey('film.id'), nullable=False)
     nom_user = db.Column(db.String(64), db.ForeignKey('user.username'), nullable=False)
+    date = db.Column(db.Date, nullable=False)
     film = db.relationship('Film', backref=db.backref('commentaires', lazy='dynamic'))
 
     def __repr__(self):

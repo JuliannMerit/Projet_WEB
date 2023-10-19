@@ -7,6 +7,7 @@ from wtforms.validators import DataRequired
 from hashlib import sha256
 from flask_login import login_user, logout_user, login_required, current_user
 from flask import request
+from datetime import date
 
 class RealisateurForm(FlaskForm):
     id = HiddenField('id')
@@ -54,9 +55,11 @@ class CommentaireForm(FlaskForm):
         commentaire = Commentaire.query.get(self.commentaire.data)
         if commentaire is None:
             nom_user = current_user.username
+            date_commmentaire = date.today()
             commentaire = Commentaire(commentaire=self.commentaire.data,
                                       id_film=self.id_film.data, 
-                                      nom_user=nom_user)
+                                      nom_user=nom_user,
+                                      date=date_commmentaire)
             db.session.add(commentaire)
             db.session.commit()
             return commentaire
@@ -76,24 +79,25 @@ def detail(id):
     film = films[int(id)-1]
     nb_films = len(films)
     commentaires = get_commentaires(id)
-    #Recuperation des infos de l'utilisateur connecté
     user = current_user.username
-    #Creation du formulaire
     f = CommentaireForm(id_film = int(id))
-    print(type(f.commentaire.data))
-    print(type(f.id_film.data))
-    print(f.validate_on_submit())
-    #Si le formulaire est valide
+    today = date.today()
     if f.validate_on_submit():
-        #Creation du commentaire
-        f.create_commentaire()
-        #Redirection vers la page du film
-        return redirect(url_for('detail',
-                                nb_films=nb_films,
-                                id=f.id_film.data,
-                                user=user,
-                                today=today))
-    #Sinon on affiche la page du film
+        if f.commentaire.data != "":
+            f.create_commentaire()
+            return redirect(url_for('detail',
+                                    nb_films=nb_films,
+                                    id=f.id_film.data,
+                                    user=user,
+                                    today=today))
+        else:
+            return render_template('detail.html',
+                                    film=film,
+                                    commentaires=commentaires,
+                                    form=f,
+                                    user=user,
+                                    today=today,
+                                    nb_films=nb_films)
     return render_template('detail.html',
                             film=film,
                             commentaires=commentaires,
@@ -150,7 +154,7 @@ def logout():
 def register():
     f=RegisterForm()
     if not f.is_submitted():
-        f.next.data=request.args.get("next")
+        return render_template("register.html",form=f)
     if f.validate_on_submit():
         user=f.create_user()
         if user:
