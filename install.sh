@@ -2,8 +2,9 @@
 
 # Créé l'environnement virtuel de python et installer les requirements
 virtualenv -p python3 venv
-source venv/bin/activate
+source .venv/bin/activate
 pip install -r requirements.txt
+pip install Werkzeug==2.3.7
 
 # Crée le fichier .flaskenv
 touch .flaskenv
